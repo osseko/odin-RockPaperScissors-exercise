@@ -7,31 +7,63 @@ console.log("Hello World!")
 // getComputerChoice function to output rock paper scissor
 // math.random functions include decimals in result; even if 'whole' integers are displayed
 // maybe array----- use array for math.random
+// let x = 'comparison operators <><==....' auto assigns as boole
+// maybe function inside function playinside(getcomputerchoice --- gethumanchoice)
+// rearrange code
 
 const min = 1
 const max = 3
 let choices = ["rock", "paper", "scissors"]
 
+let humChoose = prompt("Rock, Paper, Scissor")
+
+humanScore = 0;
+computerScore = 0;
+
+let win = "rock" > "scissor" && "paper" > "rock" && "scissor" > "paper";
+
 
 console.log("1 = rock, 2 = paper, 3 = scissor")
 
-//function getComputerChoice(){
-    //return Math.floor(Math.random() * (max - min +1) + 1 )
-    //return Math.round(Math.random())
-//}
+//choiceprompts
 
-function getComputerChoice(){
-        
-    return choices[Math.floor(Math.random() * choices.length)];
+//function getComputerChoice(){        
+//    return compChoose = choices[Math.floor(Math.random() * choices.length)];
+//}
+//function getHumanChoice(){      
+//    return humChoose;
+//}
+//choiceprompts
+//let comp = getComputerChoice();
+//let huma = getHumanChoice();
+// global variables inherited down to functions, consistent result
+//round
+function playRound(){
+
+    // let comp = getComputerChoice();
+    // let huma = getHumanChoice();
+    // variable inside function gives different result;
+
+    let compCh = choices[Math.floor(Math.random() * choices.length)];
+    let humaCH = humChoose;
+
+
+   if (getComputerChoice() === getHumanChoice()){
+        result = "draw";
+   }
     
+    console.log ("computer =",getComputerChoice(), "human =",getHumanChoice());
+
+    return result;
+
+
 }
 
+// round
 
 
+console.log("computer", getComputerChoice())
+console.log("Human", getHumanChoice())
+console.log("playround", playRound())
 
 
-console.log("getcomputerchoice", getComputerChoice())
-
-
-
-//console.log(Math.round(getComputerChoice()))
