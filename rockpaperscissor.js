@@ -10,60 +10,72 @@ console.log("Hello World!")
 // let x = 'comparison operators <><==....' auto assigns as boole
 // maybe function inside function playinside(getcomputerchoice --- gethumanchoice)
 // rearrange code
+// if else if each result of rock paper scissor
 
 const min = 1
 const max = 3
 let choices = ["rock", "paper", "scissors"]
+let compCh = choices[Math.floor(Math.random() * choices.length)];
 
-let humChoose = prompt("Rock, Paper, Scissor")
+
 
 humanScore = 0;
+
 computerScore = 0;
 
-let win = "rock" > "scissor" && "paper" > "rock" && "scissor" > "paper";
+//let win = "rock" > "scissor" && "paper" > "rock" && "scissor" > "paper";
+//let isWin = "rock" > "scissor" && "paper" < "rock";
 
 
-console.log("1 = rock, 2 = paper, 3 = scissor")
+console.log("rock, paper, scissor")
 
-//choiceprompts
 
-//function getComputerChoice(){        
-//    return compChoose = choices[Math.floor(Math.random() * choices.length)];
-//}
-//function getHumanChoice(){      
-//    return humChoose;
-//}
-//choiceprompts
-//let comp = getComputerChoice();
-//let huma = getHumanChoice();
-// global variables inherited down to functions, consistent result
-//round
+
+
+
+  
+  for(let i = 0; i < 5; i++){
 function playRound(){
 
     // let comp = getComputerChoice();
     // let huma = getHumanChoice();
     // variable inside function gives different result;
+     let humaCh = prompt("rock, paper, scissors").toLocaleLowerCase();
+ 
+ 
 
-    let compCh = choices[Math.floor(Math.random() * choices.length)];
-    let humaCH = humChoose;
+     let result;
 
-
-   if (getComputerChoice() === getHumanChoice()){
-        result = "draw";
-   }
     
-    console.log ("computer =",getComputerChoice(), "human =",getHumanChoice());
+     if (compCh === humaCh){
+          result = "draw"
+     }    else if (compCh === "rock" && humaCh === "scissors"){
+          result = "Computer wins"
+     }    else if (compCh === "scissors" && humaCh === "paper"){
+          result = "Computer wins"
+     }    else if (compCh === "paper" && humaCh === "rock"){
+          result = "Computer wins"
+     }    else if (humaCh === "rock" && compCh === "scissors"){
+          result = "Human wins"
+     }    else if (humaCh === "scissors" && compCh === "paper"){
+          result = "Human wins"
+     }    else if (humaCh === "paper" && compCh === "rock"){
+          result = "Human wins"
+     }    
 
+    console.log ("computer =", compCh, "human =", humaCh);
+   
     return result;
-
-
+   
 }
+  }
 
-// round
-
-
-console.log("computer", getComputerChoice())
-console.log("Human", getHumanChoice())
 console.log("playround", playRound())
+
+
+
+ 
+
+
 
 
