@@ -15,16 +15,16 @@ console.log("rock, paper, scissor")
 // function will get called multiple times
 // restart - review parameters
 // changed getHumanChoice from regular function to arrow function let const var
+// for loop (function) or function (for loop)
+// simple scoring, only returning humanscore, no calls for computer score, returns winner result
+// good enough for now
 
-
-
-
-humanScore = 0;
-
-computerScore = 0;
 
 //let win = "rock" > "scissor" && "paper" > "rock" && "scissor" > "paper";
 //let isWin = "rock" > "scissor" && "paper" < "rock";
+
+let computerScore;
+let humanScore;
 
 
 
@@ -41,105 +41,91 @@ function getComputerChoice(computerSelection){
      
 // }
 
+//let score = 0;
 
-
-
+//const roundResult = [];
+let mainScore = 0;
 for (let i = 0; i < 5; i++){
-function playRound(){
-    
-     let result;
 
-    if (computerSelection === humanSelection){
-          result =  "draw"
-     }    else if (computerSelection === "rock" && humanSelection === "scissors"){
-          result = "Computer wins"
-         
-     }    else if (computerSelection === "scissors" && humanSelection === "paper"){
-          result = "Computer wins"
-          
-     }    else if (computerSelection === "paper" && humanSelection === "rock"){
-          result = "Computer wins"
-          
-     }    else if (humanSelection === "rock" && computerSelection === "scissors"){
-          result = "Human wins"
-          
-     }    else if (humanSelection === "scissors" && computerSelection === "paper"){
-          result = "Human wins"
-          
-     }    else if (humanSelection === "paper" && computerSelection === "rock"){
-          result = "Human wins"
-     }    
-    
-   return result;
+
+     function playRound(){
      
-}
+          
 
-let humanSelection = prompt("rock, paper, scissors").toLocaleLowerCase();
-const computerSelection = getComputerChoice();
+          if (computerSelection === humanSelection){
+                    console.log ("draw")
 
+               }    else if (computerSelection === "rock" && humanSelection === "scissors"){
+                    computerScore++;
+                    console.log("com point");
+               
+               }    else if (computerSelection === "scissors" && humanSelection === "paper"){
+                    computerScore++;
+                    console.log("com point");
+                    
+               }    else if (computerSelection === "paper" && humanSelection === "rock"){
+                    computerScore++;
+                    console.log("com point");
+                    
+               }    else if (humanSelection === "rock" && computerSelection === "scissors"){
+                    mainScore++;
+                    console.log("human point");
+                   
+                    
+               }    else if (humanSelection === "scissors" && computerSelection === "paper"){
+                    mainScore++;
+                    console.log("human point");
+                    
 
-playRound(computerSelection, humanSelection)
+               }    else if (humanSelection === "paper" && computerSelection === "rock"){
+                    mainScore++;
+                    console.log("human point");
+                   
+               }    
+     
+          return mainScore;
+          
 
-
-
-console.log("computer = ", computerSelection, "human = ", humanSelection);
-console.log ("result", playRound());
-}
-
-
-
-
-// playRound(humanSelection, computerSelection);
-
-
-
-//for(let i = 0; i < 5; i++){
-//     humaCh;
-//}
-
-
-     //let result;
-
-    
-//      if (computerChoose() === player){
-//           result = "draw"
-//      }    else if (computerChoose() === "rock" && player === "scissors"){
-//           result = "Computer wins"
          
-//      }    else if (computerChoose() === "scissors" && player === "paper"){
-//           result = "Computer wins"
           
-//      }    else if (computerChoose() === "paper" && player === "rock"){
-//           result = "Computer wins"
-          
-//      }    else if (player === "rock" && computerChoose() === "scissors"){
-//           result = "Human wins"
-          
-//      }    else if (player === "scissors" && computerChoose() === "paper"){
-//           result = "Human wins"
-          
-//      }    else if (player === "paper" && computerChoose() === "rock"){
-//           result = "Human wins"
-          
-//      }    
+     }
 
-//     console.log ("computer =", computerChoose(), "human =", player);
-   
-    //return result;
+     let humanSelection = prompt("rock, paper, scissors").toLocaleLowerCase();
+     const computerSelection = getComputerChoice();
 
-//function playRound(){
 
- 
-
-//}
+     playRound(computerSelection, humanSelection);
 
 
 
-//console.log(playRound())
+     console.log("computer = ", computerSelection, "human = ", humanSelection);
+     console.log ("total player score = ", mainScore);
+    
+     // roundResult.push("round", i + 1);
+     // console.log (roundResult);
+
+}
 
 
+function playGame(){   
+     
+     let final;
+     
+     if (game >= 3){
+         console.log("You are winner");
+     } else if (game < 3){
+          console.log("try again");
+     }
 
- 
+     return final;
+
+}
+
+const game = playRound();
+const finalResult = playGame();
+
+//console.log ("playgame",finalResult);
+
 
 
 
