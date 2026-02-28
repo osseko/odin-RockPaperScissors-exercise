@@ -1,92 +1,77 @@
 console.log("Hello World!")
 console.log("rock, paper, scissor")
 
-const container = document.querySelector("#container")
+const buttons = document.querySelectorAll("button");
 
-// rock paper scissor, 
-// 
-     const rock = document.querySelector("#rock");
-     rock.addEventListener("click", () => {
-          alert("rock");
-     });
-
-     const paper = document.querySelector("#paper");
-     paper.addEventListener("click", () =>  {
-          alert("paper");
-     });
-
-     const scissors = document.querySelector("#scissors");
-     scissors.addEventListener("click", () => {
-          alert("scissors");
-     });
+let btnRock = document.querySelector("#rock");
+let btnPaper = document.querySelector("#paper");
+let btnScissors = document.querySelector("#scissors");
 
 
 
-let computerScore;
-let humanScore;
+let humanScore = 1;
 
-function getComputerChoice(computerSelection){
-     let choices = ["rock", "paper", "scissors"]
-     return computerSelection = choices[Math.floor(Math.random() * choices.length)];
+let computerScore = 1;
+
+
+function playRound(comPick, playerPick){
+    
+     //const isWin = "rock" > "scissors" && "scissors" > "paper" && "paper" > "rock";
+
+     if (comPick === playerPick){
+                    return console.log("player", playerPick,"com", comPick, "draw"),
+                         "draw" 
+
+          }    else if (comPick === "rock" && playerPick === "scissors"){
+                    return console.log("com", comPick, 
+                                        "player", playerPick, "computerScore"),
+                         "com point", computerScore++;
+                                   
+          }    else if (comPick === "scissors" && playerPick === "paper"){
+                    return console.log("com", comPick, 
+                                        "player", playerPick, "computerScore"), 
+                         "com point", computerScore++;
+                                       
+          }    else if (comPick === "paper" && playerPick === "rock"){
+                    return console.log("com", comPick, 
+                                        "player", playerPick, "computerScore"), 
+                         "com point", computerScore++;
+                                        
+          }    else if (playerPick === "rock" && comPick === "scissors"){
+                    return console.log("player", playerPick,
+                                        "com", comPick, "humanScore"),
+                         "player point", humanScore++;
+                                                           
+          }    else if (playerPick === "scissors" && comPick === "paper"){
+                    return console.log("player", playerPick,
+                                        "com", comPick, "humanScore"),
+                         "player point", humanScore++;
+                                        
+
+          }    else if (playerPick === "paper" && comPick === "rock"){
+                    return console.log("player", playerPick,
+                                        "com", comPick, "humanScore"), 
+                         "player point", humanScore++;
+                                  
+          }    
+     
+          
 }
 
-let mainScore = 0;
-
-     function playRound(){
-     
-          
-
-          if (computerSelection === humanSelection){
-                    console.log ("draw")
-
-               }    else if (computerSelection === "rock" && humanSelection === "scissors"){
-                    computerScore++;
-                    console.log("com point");
-               
-               }    else if (computerSelection === "scissors" && humanSelection === "paper"){
-                    computerScore++;
-                    console.log("com point");
-                    
-               }    else if (computerSelection === "paper" && humanSelection === "rock"){
-                    computerScore++;
-                    console.log("com point");
-                    
-               }    else if (humanSelection === "rock" && computerSelection === "scissors"){
-                    mainScore++;
-                    console.log("human point");
-                   
-                    
-               }    else if (humanSelection === "scissors" && computerSelection === "paper"){
-                    mainScore++;
-                    console.log("human point");
-                    
-
-               }    else if (humanSelection === "paper" && computerSelection === "rock"){
-                    mainScore++;
-                    console.log("human point");
-                   
-               }    
-     
-          return mainScore;
-          
-
-         
-          
-     }
-
-let humanSelection = prompt("rock, paper, scissors").toLocaleLowerCase();
-const computerSelection = getComputerChoice();
+function getComputerChoice(computer){
+     let choices = ["rock", "paper", "scissors"]
+     return computer = choices[Math.floor(Math.random() * choices.length)];
+}
 
 
-     playRound(computerSelection, humanSelection);
 
-     function playGame(){   
+function playGame(){   
           
           let final;
           
-          if (game >= 3){
-          console.log("You are winner");
-          } else if (game < 3){
+          if (humanScore === 5){
+               console.log("You are winner");
+          } else if (computerScore === 5){
                console.log("try again");
           }
 
@@ -94,8 +79,26 @@ const computerSelection = getComputerChoice();
 
      }
 
-const game = playRound();
-const finalResult = playGame();
+
+
+
+const clicker = buttons.forEach((button) => {
+
+     button.addEventListener("click", () => {
+          const clickedOn = button.value;
+          
+          const comChoice = getComputerChoice();
+         
+          const gameRound = playRound(comChoice, clickedOn);
+
+          console.log("play", gameRound);
+          const finalResult = playGame();
+          console.log(finalResult);
+
+     });
+});
+
+    
 
 
 
